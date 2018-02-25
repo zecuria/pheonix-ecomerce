@@ -7,7 +7,7 @@ use Mix.Config
 # watchers to your application. For example, we use it
 # with brunch.io to recompile .js and .css sources.
 config :mango, MangoWeb.Endpoint,
-  http: [port: 4000],
+  http: [port: System.get_env("PORT") || 4000],
   debug_errors: true,
   code_reloader: true,
   check_origin: false,
@@ -51,6 +51,7 @@ config :phoenix, :stacktrace_depth, 20
 # Configure your database
 config :mango, Mango.Repo,
   adapter: Ecto.Adapters.Postgres,
+  url: {:sytem, "DATABASE_URL"}
   username: "postgres",
   password: "postgres",
   database: "mango_dev",

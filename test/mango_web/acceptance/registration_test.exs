@@ -8,27 +8,27 @@ defmodule MangoWeb.Acceptance.RegistrationsTest do
     navigate_to("/register")
 
     form = find_element(:id, "registeration-form")
-    find_within_elemnt(form, :name, "registeration[name]")
+    find_within_element(form, :name, "registeration[name]")
     |> fill_field("John")
 
-    find_within_elemnt(form, :name, "registeration[email]")
+    find_within_element(form, :name, "registeration[email]")
     |> fill_field("john@example.com")
 
-    find_within_elemnt(form, :name, "registeration[phone]")
+    find_within_element(form, :name, "registeration[phone]")
     |> fill_field("1111")
 
-    find_within_elemnt(form, :name, "registeration[residence_area]")
+    find_within_element(form, :name, "registeration[residence_area]")
     |> fill_field("Area 1")
 
 
-    find_within_elemnt(form, :name, "registeration[password]")
+    find_within_element(form, :name, "registeration[password]")
     |> fill_field("password")
 
     
-    find_within_elemnt(form, :tag, "button")
+    find_within_element(form, :tag, "button")
     |> click
 
-    assert current_path == "/"
+    assert current_path() == "/"
     message = find_element(:class, "alert")
               |> visible_text
     
